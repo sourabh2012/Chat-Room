@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Room</title>
+
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css"/>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/script.js"></script>
+
+    <style>
+        #name-form {
+            height: 100vh;
+        }
+        .form-container {
+            border: 2px solid #343a40;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-heading {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .input-group .form-control {
+            margin-right: 10px; /* Adjust this value to control the gap */
+        }
+    </style>
+</head>
+<body class="bg-secondary">
+<div id="name-form" class="d-flex align-items-center justify-content-center bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="form-container">
+                    <h2 class="form-heading">Welcome To RoomChat</h2>
+                    <div class="input-group">
+                        <input type="text"
+                               placeholder="Enter Your Name"
+                               id="name-value"
+                               autofocus
+                               class="form-control"
+                        >
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" id="login">Enter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="chat-room" class="d-none bg-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h3 id="name-title"></h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text"
+                                   placeholder="Enter Your Message"
+                                   id="message-value"
+                                   autofocus
+                                   class="form-control"
+                            >
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" id="send-btn">Send</button>
+                                <button class="btn btn-dark" id="logout">Logout</button>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-3">
+                            <table id="message-container-table">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
